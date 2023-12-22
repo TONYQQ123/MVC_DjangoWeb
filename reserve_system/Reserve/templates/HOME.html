@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p style="font-size: 300%; text-align: center;">
+    Welcome {{user.username}}!
+  </p>
+  <form method="post" action="{% url 'tool' %}">
+    {% csrf_token %}
+  <div class="main-container">
+    <header class="header">
+      <div class="column">
+        <div class="search">
+          <button type="submit" class="search-icon" name="action" value="search">
+            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script><dotlottie-player src="https://lottie.host/02a6218c-2f09-4bd0-86d9-981834cfb2e5/hBsWi3VQIA.json" background="transparent" speed="1" style="height: 404px" direction="1" mode="normal" loop autoplay></dotlottie-player>
+          </button>
+          <div class="search-text">查詢預約</div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="reservation">
+          <button type="submit" class="reservation-icon" name="action" value="reservation">
+            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script><dotlottie-player src="https://lottie.host/f96cadc7-5a96-460b-bb35-4e5493d903de/AXixT4LHnf.json" background="transparent" speed="1" style=" height: 404px" direction="1" mode="normal" loop autoplay></dotlottie-player>
+          </button>
+          <div class="reservation-text">預約</div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="logout">
+          <button type="submit" class="logout-icon" name="action" value="logout">
+            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+    <dotlottie-player src="https://lottie.host/3b7f8fba-c437-4279-ab35-9b57f68b2dee/eYUuBjOrgb.json" background="transparent" speed="1" style=" height: 404px;" loop autoplay></dotlottie-player>
+          </button>
+          <div class="logout-text">登出</div>
+        </div>
+      </div>
+    </header>
+  </div>
+</form>
+  
+  <style>
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+    .main-container {
+      background: linear-gradient(180deg, #f8e2c2 5.21%, rgba(248, 226, 194, 0.36) 58.85%, rgba(248, 226, 194, 0.54) 77.6%, rgba(248, 226, 194, 0) 100%);
+      padding: 50px 21px 100px 80px; 
+      height: 100%; 
+      box-sizing: border-box;
+    }
+  
+    @media (max-width: 991px) {
+      .main-container {
+        padding: 0 20px;
+        height: 100%; 
+      box-sizing: border-box;
+      }
+    }
+  
+    .header {
+      display: flex;
+      gap: 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+  
+    .column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 32%;
+      margin-left: 0;
+    }
+  
+    @media (max-width: 991px) {
+      .column {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  
+    .search {
+      display: flex;
+      flex-direction: column;
+      margin-top: 42px;
+      background-color: #f8e2c2;
+    }
+  
+    @media (max-width: 991px) {
+      .search {
+        margin-top: 40px;
+        background-color: #f8e2c2;
+        
+      }
+    }
+  
+    .search-icon {
+      border-radius: 50%;
+      background-color: #d9d9d9;
+      display: flex;
+      height: 404px;
+      flex-direction: column;
+    }
+  
+    .search-text {
+      color: #000;
+      text-align: center;
+      margin-top: 21px;
+      font: 400 40px Inter, sans-serif;
+    }
+  
+    .reservation {
+      display: flex;
+      flex-direction: column;
+      margin-top: 431px;
+      background-color: #f8e2c2;
+    }
+  
+    @media (max-width: 991px) {
+      .reservation {
+        margin-top: 40px;
+        background-color: #f8e2c2;
+      }
+    }
+  
+    .reservation-icon {
+      border-radius: 50%;
+      background-color: #d9d9d9;
+      display: flex;
+      height: 404px;
+      flex-direction: column;
+    }
+  
+    .reservation-text {
+      color: #000;
+      text-align: center;
+      align-self: center;
+      margin-top: 30px;
+      font: 400 40px Inter, sans-serif;
+    }
+  
+    .logout {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+      background-color: #f8e2c2;
+    }
+  
+    @media (max-width: 991px) {
+      .logout {
+        margin-top: 40px;
+        background-color: #f8e2c2;
+      }
+    }
+  
+    .logout-icon {
+      border-radius: 50%;
+      background-color: #d9d9d9;
+      display: flex;
+      height: 404px;
+      flex-direction: column;
+    }
+  
+    .logout-text {
+      color: #000;
+      text-align: center;
+      align-self: center;
+      margin-top: 37px;
+      font: 400 40px Inter, sans-serif;
+    }
+  </style>
+  
+</body>
+</html>
+

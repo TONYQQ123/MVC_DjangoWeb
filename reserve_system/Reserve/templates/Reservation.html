@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  {% if messages %}
+  <ul class="messages" style="font-size: 300%; text-align: center;">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <div class="main-container"> 
+        <header class="title">預約</header>
+        <div class="div-3"> 
+          <div class="div-4">
+            <form method="post" action="{% url 'date' %}" style="display: flex;">
+              {% csrf_token %}
+            <div class="column">
+                <input class="input-wrapper" type="date" class="input" aria-label="Input" name="input" />
+            </div>
+            <div class="column-2">
+              <button type="submit" class="button-wrapper" name="action" value="submit">
+                確認
+              </button>
+              <button type="submit" class="button-wrapper" name="action" value="return">
+                返回
+              </button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <style>
+        .main-container {
+          background: linear-gradient(
+            180deg,
+            #f8e2c2 5.21%,
+            rgba(248, 226, 194, 0.36) 58.85%,
+            rgba(248, 226, 194, 0.54) 77.6%,
+            rgba(248, 226, 194, 0) 100%
+          );
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 50px 80px;
+        }
+        
+        @media (max-width: 991px) {
+          .main-container {
+            padding: 0 20px;
+          }
+        }
+        
+        .title {
+          color: #000;
+          text-align: center;
+          margin-top: 107px;
+          font: 400 160px Inter, sans-serif;
+        }
+        
+        @media (max-width: 991px) {
+          .title {
+            font-size: 40px;
+            margin-top: 40px;
+          }
+        }
+        
+        .div-3 {
+          width: 100%;
+          max-width: 1165px;
+          margin: 146px 0 310px;
+        }
+        
+        @media (max-width: 991px) {
+          .div-3 {
+            max-width: 100%;
+            margin: 40px 0;
+          }
+        }
+        
+        .div-4 {
+          gap: 20px;
+          display: flex;
+        }
+        
+        @media (max-width: 991px) {
+          .div-4 {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0px;
+          }
+        }
+        
+        .column {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 79%;
+          margin-left: 0px;
+        }
+        
+        @media (max-width: 991px) {
+          .column {
+            width: 100%;
+          }
+        }
+        
+        .input-wrapper {
+          border-radius: 25px;
+          background-color: #d9d9d9;
+          display: flex;
+          width: 848px;
+          max-width: 100%;
+          height: 111px;
+          flex-direction: column;
+          margin: auto;
+          font-size: 300%;
+        }
+        
+        @media (max-width: 991px) {
+          .input-wrapper {
+            margin-top: 40px;
+          }
+        }
+        
+        .column-2 {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 21%;
+          margin-left: 20px;
+        }
+        
+        @media (max-width: 991px) {
+          .column-2 {
+            width: 100%;
+          }
+        }
+        
+        .button-wrapper {
+          color: #000;
+          text-align: center;
+          white-space: nowrap;
+          border-radius: 50px;
+          background-color: #e3ac95;
+          flex-grow: 1;
+          justify-content: center;
+          align-items: start;
+          width: 100%;
+          padding: 39px 58px;
+          font: 400 50px Inter, sans-serif;
+          margin-top: 3%;
+        }
+        
+        @media (max-width: 991px) {
+          .button-wrapper {
+            font-size: 40px;
+            white-space: initial;
+            margin-top: 40px;
+            padding: 0 20px;
+          }
+        }
+      </style>
+</body>
+</html>
