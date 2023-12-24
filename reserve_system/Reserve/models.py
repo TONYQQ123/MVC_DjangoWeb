@@ -13,4 +13,4 @@ class Rserve(models.Model):
     date=models.DateField(default='2023-1-1',null=True)
 
 class CustomUser(User):
-    pass
+    reserve_data=models.OneToOneField(Rserve,on_delete=models.CASCADE,null=True)
