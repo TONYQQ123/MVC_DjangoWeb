@@ -110,7 +110,7 @@ def register(request):
             )
             NewOne.set_password(form.cleaned_data['password'])
             NewOne.save()
-            messages.error(request,'註冊失敗')
+            messages.success(request,'註冊登入')
             return redirect('index')
     contex={'form':form}
     messages.error(request,'註冊失敗')
