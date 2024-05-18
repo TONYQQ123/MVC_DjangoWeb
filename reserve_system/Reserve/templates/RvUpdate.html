@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Updated Code</title>
+  <style>
+    .main-container {
+      background: linear-gradient(180deg, #f8e2c2 5.21%, rgba(248, 226, 194, 0.36) 58.85%, rgba(248, 226, 194, 0.54) 77.6%, rgba(248, 226, 194, 0) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 45px 80px 45px 20px;
+    }
+
+    @media (max-width: 991px) {
+      .main-container {
+        padding-right: 20px;
+      }
+    }
+
+    .header {
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    @media (max-width: 991px) {
+      .header {
+        max-width: 100%;
+      }
+    }
+
+    .header__container {
+      gap: 20px;
+      display: flex;
+    }
+
+    @media (max-width: 991px) {
+      .header__container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 100%;
+      margin-left: 0px;
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button {
+      color: #000;
+      text-align: center;
+      border-radius: 50px;
+      background-color: #e3ac95;
+      justify-content: center;
+      width: 30%;
+      padding: 20px;
+      font-size: 24px;
+    }
+
+    .text-container {
+      margin-top: 40px;
+      width: 100%;
+      text-align: center;
+    }
+
+
+    .input-wrapper {
+      border-radius: 25px;
+      background-color: #d9d9d9;
+      display: flex;
+      width: 848px;
+      max-width: 100%;
+      height: 81px;
+      flex-direction: column;
+      margin: 10px auto;
+      font-size: 300%;
+    }
+
+    @media (max-width: 991px) {
+      .input-wrapper {
+        margin-top: 40px;
+      }
+    }
+
+    .search-label {
+      color: #000;
+      text-align: center;
+      margin-top: 124px;
+      font: 400 60px Inter, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .search-label {
+        max-width: 100%;
+        margin-top: 40px;
+        font-size: 40px;
+      }
+    }
+
+    .column-2 {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 70%;
+      margin-left: 20px;
+    }
+
+    @media (max-width: 991px) {
+      .column-2 {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  {% if messages %}
+  <ul class="messages" style="font-size: 300%; text-align: center;">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+  <div class="main-container">
+    <header class="header">
+      <div class="header__container">
+        <div class="column">
+          <form method="post" action="{% url 'BackHome' %}">
+            {% csrf_token %}
+            <button type="submit" class="button" name="action" value="return">返回</button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="column-2">
+      <div class="search-label">查詢預約</div>
+    </div>
+      <form method="post">
+        {% csrf_token %}
+        <div >
+          <label for="reserve_number" style="font-size: 40px;">預約編號：</label>
+          <input type="text" id="reserve_number" name="id" class="input-wrapper">
+        </div>
+        <div>
+          <label for="reservation_date" style="font-size: 40px;">日期：</label>
+          <input type="date" id="reservation_date" name="date" class="input-wrapper">
+        </div>
+        <div>
+          <label for="reservation_need" style="font-size: 40px;">需求：</label>
+          <input type="text" id="reservation_need" name="need" class="input-wrapper">
+        </div>
+        <div class="buttons-container">
+          <button type="submit" class="button" name="action" value="delete">刪除預約</button>
+          <button type="submit" class="button" name="action" value="update">更新預約</button>
+          <button type="submit" class="button" name="action" value="query">查詢預約</button>
+        </div>
+        <div class="text-container">
+        </div>
+      </form>
+      <div class="div-6">
+        <p style="font-size: 300%; text-align: center;">{{data|safe}}</p>
+      </div>
+  </div>
+</body>
+
+</html>
+``

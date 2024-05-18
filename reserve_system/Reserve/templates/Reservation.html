@@ -19,7 +19,13 @@
             <form method="post" action="{% url 'date' %}" style="display: flex;">
               {% csrf_token %}
             <div class="column">
-                <input class="input-wrapper" type="date" class="input" aria-label="Input" name="input" />
+                <input class="input-wrapper" type="date" class="input" aria-label="Input" name="date_input" />
+                <select class="input-wrapper" name="gender">
+                    <option value="男">男性</option>
+                    <option value="女">女性</option>
+                    <option value="其他">其他</option>
+                </select>
+                <textarea class="input-wrapper" name="details" rows="4" cols="50" placeholder="想預約的事項..."></textarea>
             </div>
             <div class="column-2">
               <button type="submit" class="button-wrapper" name="action" value="submit">
@@ -117,7 +123,7 @@
           max-width: 100%;
           height: 111px;
           flex-direction: column;
-          margin: auto;
+          margin: 10px auto;
           font-size: 300%;
         }
         
@@ -164,6 +170,6 @@
             padding: 0 20px;
           }
         }
-      </style>
+    </style>
 </body>
 </html>

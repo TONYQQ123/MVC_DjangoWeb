@@ -1,16 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser,User
-# Create your models here.
-class Rserve(models.Model):
-    # Gender=(
-    #     ('M','Male'),
-    #     ('F','Female'),
-    #     ('O','Other')
-    # )
-    # name=models.CharField(max_length=200)
-    # gender=models.CharField(max_length=1,choices=Gender)
-    # need=models.TextField()
-    date=models.DateField(default='2023-1-1',null=True)
+
+
 
 class CustomUser(User):
-    reserve_data=models.OneToOneField(Rserve,on_delete=models.CASCADE,null=True)
+    user_id = models.CharField(max_length=100, unique=True, primary_key=True)
+    
+
+class Rserve(models.Model):
+    need = models.TextField(default="None")
+    date = models.DateField(default=None, null=True)
+    reserve_id = models.CharField(max_length=100, primary_key=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='reserves',null=True)
+    gender = models.CharField(max_length=10, default='Male')

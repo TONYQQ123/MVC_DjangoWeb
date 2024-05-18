@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+  <?php
+  echo "嗨";
+  ?>
   <p style="font-size: 300%; text-align: center;">
     Welcome {{user.username}}!
   </p>
@@ -40,6 +43,15 @@
       </div>
     </header>
   </div>
+</form>
+<form action="{% url 'delusr' %}" method="post">
+  {% csrf_token %}
+  <div>
+    <input type="hidden" name="username" value="{{user.username}}">
+    <button type="submit" name="action" value="delusr">
+    刪除用戶
+  </button>
+</div>
 </form>
   
   <style>
@@ -186,7 +198,6 @@ body {
       font: 400 40px Inter, sans-serif;
     }
   </style>
-  
 </body>
 </html>
 
